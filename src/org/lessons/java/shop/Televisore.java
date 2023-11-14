@@ -32,9 +32,9 @@ public class Televisore extends Prodotto{
 	@Override
 	public String toString() {
 		// TODO Auto-generated method stub
-		return "TV: \n"+super.toString()
+		return "TV: "+super.toString()
 				+"diemnsions: "+ getDimensions() + "pollici \n"
-				+"is smart: "+ isSmart()+"\n";
+				+"type: "+ (isSmart()? "smartTv": "notSmart")+"\n";
 		
 		
 	}

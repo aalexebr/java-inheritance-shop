@@ -105,7 +105,7 @@ public class Prodotto {
 	@Override
 	
 	public String toString() {
-		return "Product:\n"
+		return "\n"
 				+ "code: " + String.format("%08d",getCode())  + "\n"
 				+ "name: " + getName() + "\n"
 				+ "desc: " + getDescription()+ "\n"

@@ -5,14 +5,29 @@ import java.util.Scanner;
 final public class Carrello {
 	public static void main(String[] args) {
 		
-		final int ITEM_QUANTITY = 3;
+		final int ITEM_QUANTITY = 7;
 				
 		Prodotto[] carrello = new Prodotto[ITEM_QUANTITY];
 		
 		Scanner in = new Scanner(System.in);
 //		Televisore t1= new Televisore("name1","desc1",1.99,10,10,true);
 //		System.out.println(t1);
-		for(int x =0 ; x<ITEM_QUANTITY; x++) {
+		boolean exit = false;
+		int x = 0;
+		while(!exit){
+			if(x == ITEM_QUANTITY) {
+				break;
+			}
+			
+			System.out.print("add item? y/n");
+			String addOrNot = in.nextLine();
+			char c = addOrNot.charAt(0);
+			if(c== 'n') {
+				exit = !exit;
+				break;
+			}
+			
+			
 			System.out.println("smartphone = 1, tv = 2, headphones = 3");
 			System.out.print("What item do you want to add?");
 			String userChoise = in.nextLine();
@@ -68,13 +83,14 @@ final public class Carrello {
 				Cuffia prod = new Cuffia(prodName, prodDesc, price, iva, color, wireless);
 				carrello[x] = prod;
 			}
+			x++;
 			
 		}
 	
 		in.close();
 		
-		for(int x=0; x<ITEM_QUANTITY; x++) {
-			System.out.println(carrello[x]);
+		for(int j=0; j<ITEM_QUANTITY; j++) {
+			System.out.println(carrello[j]);
 			System.out.println("\n-----------\n");
 		}
 		

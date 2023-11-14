@@ -32,7 +32,7 @@ public class Smartphone extends Prodotto{
 	@Override
 	public String toString() {
 		// TODO Auto-generated method stub
-		return "SMARTPHONE: \n"+super.toString()
+		return "SMARTPHONE: "+super.toString()
 				+"memory: "+ getMemory() + "GB \n"
 				+"IMEI: "+ getCodeIMEI()+"\n";
 		

@@ -31,9 +31,9 @@ public class Cuffia extends Prodotto{
 	
 	public String toString() {
 		// TODO Auto-generated method stub
-		return "CUFFIA: \n"+ super.toString()
-				+"color: "+ getColor() + "pollici" +"\n"
-				+"type: "+ isWireless()+"\n";
+		return "CUFFIA: "+ super.toString()
+				+"color: "+ getColor() +"\n"
+				+"type: "+ (isWireless()? "wireless":"cable")+"\n";
 		
 		
 	}
