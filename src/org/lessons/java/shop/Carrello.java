@@ -33,8 +33,8 @@ final public class Carrello {
 			
 			System.out.println("smartphone = 1, tv = 2, headphones = 3");
 			System.out.print("What item do you want to add?");
-			String userChoise = in.nextLine();
-			int choise = Integer.valueOf(userChoise);
+			String userChoice = in.nextLine();
+			int choice = Integer.valueOf(userChoice);
 			
 			System.out.print("input product name:");
 			String prodName = in.nextLine();
@@ -51,7 +51,7 @@ final public class Carrello {
 			double iva = Double.valueOf(prodVAT);
 			
 			
-			if(choise == 1) {
+			if(choice == 1) {
 				System.out.print("input phone IMEI:");
 				String imei = in.nextLine();
 				
@@ -64,7 +64,7 @@ final public class Carrello {
 				carrello[x] = prod;
 				
 			}
-			else if(choise == 2) {
+			else if(choice == 2) {
 				System.out.print("dimension in pollici");
 				String strDim = in.nextLine();
 				int dimensions = Integer.valueOf(strDim);
@@ -80,7 +80,7 @@ final public class Carrello {
 				Televisore prod = new Televisore(prodName, prodDesc, price, iva,dimensions, isSmart);
 				carrello[x] = prod;
 			}
-			else {
+			else if(choice == 3){
 				System.out.print("colore:");
 				String color = in.nextLine();
 				
@@ -94,6 +94,10 @@ final public class Carrello {
 				
 				Cuffia prod = new Cuffia(prodName, prodDesc, price, iva,color, isWireless);
 				carrello[x] = prod;
+			}
+			else {
+				System.out.println("incorrect product value inserted can accept only 1 - 2 - 3");
+				continue;
 			}
 			x++;
 			
@@ -111,7 +115,7 @@ final public class Carrello {
 		}
 //		BONUS LA STAMPA CON DUE CICLI SERVE SOLO PER VEDERE BENE IN CONSOLE POSSO FARE TUTTO IN 1 CICLO
 		
-		System.out.print("do you have fidelity card? y / n");
+		System.out.print("do you have fidelity card (y/n) ?");
 		String strDiscount = in.nextLine();
 		in.close();
 		char disc = strDiscount.charAt(0);
