@@ -11,16 +11,12 @@ final public class Carrello {
 		
 		Scanner in = new Scanner(System.in);
 
-		System.out.print("do you have fidelity card? y / n");
-		String strDiscount = in.nextLine();
-		char disc = strDiscount.charAt(0);
-		boolean discount;
-		if(disc == 'y') discount = true;
-		else discount = false;
-//		Boolean discount = Boolean.valueOf(strDiscount);
+		
 		
 		boolean exit = false;
 		int x = 0;
+		
+		
 		while(!exit){
 			if(x == ITEM_QUANTITY) {
 				break;
@@ -84,7 +80,7 @@ final public class Carrello {
 				Televisore prod = new Televisore(prodName, prodDesc, price, iva,dimensions, isSmart);
 				carrello[x] = prod;
 			}
-			else if(choise ==3){
+			else {
 				System.out.print("colore:");
 				String color = in.nextLine();
 				
@@ -102,7 +98,7 @@ final public class Carrello {
 			x++;
 			
 		}
-		in.close();
+		
 		System.out.println("\n-----------\n");
 		
 		double total = 0;
@@ -113,6 +109,16 @@ final public class Carrello {
 			System.out.println(carrello[j]);
 			
 		}
+//		BONUS LA STAMPA CON DUE CICLI SERVE SOLO PER VEDERE BENE IN CONSOLE POSSO FARE TUTTO IN 1 CICLO
+		
+		System.out.print("do you have fidelity card? y / n");
+		String strDiscount = in.nextLine();
+		in.close();
+		char disc = strDiscount.charAt(0);
+		boolean discount;
+		if(disc == 'y') discount = true;
+		else discount = false;
+		
 		for(int j=0; j<ITEM_QUANTITY; j++) {
 			if(carrello[j] == null) {
 				break;
