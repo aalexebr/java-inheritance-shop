@@ -10,8 +10,15 @@ final public class Carrello {
 		Prodotto[] carrello = new Prodotto[ITEM_QUANTITY];
 		
 		Scanner in = new Scanner(System.in);
-//		Televisore t1= new Televisore("name1","desc1",1.99,10,10,true);
-//		System.out.println(t1);
+
+		System.out.print("do you have fidelity card? y / n");
+		String strDiscount = in.nextLine();
+		char disc = strDiscount.charAt(0);
+		boolean discount;
+		if(disc == 'y') discount = true;
+		else discount = false;
+//		Boolean discount = Boolean.valueOf(strDiscount);
+		
 		boolean exit = false;
 		int x = 0;
 		while(!exit){
@@ -47,6 +54,7 @@ final public class Carrello {
 			String prodVAT = in.nextLine();
 			double iva = Double.valueOf(prodVAT);
 			
+			
 			if(choise == 1) {
 				System.out.print("input phone IMEI:");
 				String imei = in.nextLine();
@@ -61,36 +69,65 @@ final public class Carrello {
 				
 			}
 			else if(choise == 2) {
-				System.out.print("diemnsion in pollici");
+				System.out.print("dimension in pollici");
 				String strDim = in.nextLine();
 				int dimensions = Integer.valueOf(strDim);
 				
-				System.out.print("is it smrt? true / false");
+				System.out.print("is it smart? y / n");
 				String strSmart = in.nextLine();
-				Boolean smart = Boolean.valueOf(strSmart);
+				char bool = strSmart.charAt(0);
+				boolean isSmart;
+				if(bool == 'y') isSmart = true;
+				else isSmart = false;
+//				Boolean smart = Boolean.valueOf(strSmart);
 				
-				Televisore prod = new Televisore(prodName, prodDesc, price, iva, dimensions, smart);
+				Televisore prod = new Televisore(prodName, prodDesc, price, iva,dimensions, isSmart);
 				carrello[x] = prod;
 			}
 			else if(choise ==3){
 				System.out.print("colore:");
 				String color = in.nextLine();
 				
-				System.out.print("is it wireless? true / false");
+				System.out.print("is it wireless? y / n");
 				String strWire = in.nextLine();
-				Boolean wireless = Boolean.valueOf(strWire);
+//				Boolean wireless = Boolean.valueOf(strWire);
+				char bool = strWire.charAt(0);
+				boolean isWireless;
+				if(bool == 'y') isWireless = true;
+				else isWireless = false;
 				
-				Cuffia prod = new Cuffia(prodName, prodDesc, price, iva, color, wireless);
+				Cuffia prod = new Cuffia(prodName, prodDesc, price, iva,color, isWireless);
 				carrello[x] = prod;
 			}
 			x++;
 			
 		}
-	
 		in.close();
+		System.out.println("\n-----------\n");
 		
+		double total = 0;
 		for(int j=0; j<ITEM_QUANTITY; j++) {
+			if(carrello[j] == null) {
+				break;
+			}
 			System.out.println(carrello[j]);
+			
+		}
+		for(int j=0; j<ITEM_QUANTITY; j++) {
+			if(carrello[j] == null) {
+				break;
+			}
+
+			System.out.println("\n-----------\n");
+			if(discount) {
+				System.out.println("price: "+carrello[j].getDiscountPrice());
+				total += carrello[j].getDiscountPrice();
+			}
+			else {
+				System.out.println("price: "+carrello[j].getGrossPrice());
+				total += carrello[j].getGrossPrice();
+			}
+			System.out.println("total: "+total);
 			System.out.println("\n-----------\n");
 		}
 		

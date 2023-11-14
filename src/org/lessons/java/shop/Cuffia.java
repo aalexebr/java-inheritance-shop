@@ -4,8 +4,9 @@ public class Cuffia extends Prodotto{
 	
 	private String color;
 	private boolean wireless;
+	static private int extraDiscount = 7;
 	
-	public Cuffia(String name, String description,double price ,double iva, String color, boolean wireless) {
+	public Cuffia(String name, String description,double price ,double iva,String color, boolean wireless) {
 		super(name,description,price,iva);
 		
 		setColor(color);
@@ -29,6 +30,18 @@ public class Cuffia extends Prodotto{
 		this.wireless = wireless;
 	}
 	
+	@Override
+	public double getDiscountPrice() {
+		if(!wireless) {
+			double x = (100.0 - extraDiscount)/100.0;
+			double result = getGrossPrice()*x;
+			return result;
+		}
+		// TODO Auto-generated method stub
+		return super.getDiscountPrice();
+	}
+	
+	@Override
 	public String toString() {
 		// TODO Auto-generated method stub
 		return "CUFFIA: "+ super.toString()

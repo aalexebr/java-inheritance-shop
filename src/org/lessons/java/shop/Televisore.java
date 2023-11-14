@@ -4,6 +4,7 @@ public class Televisore extends Prodotto{
 	
 	private int dimensions;
 	private boolean isSmart;
+	static private int extraDiscount = 10;
 	
 	public Televisore(String name, String description,double price ,double iva, int dimensions, boolean isSmart) {
 		super(name,description,price,iva);
@@ -27,6 +28,17 @@ public class Televisore extends Prodotto{
 
 	public void setIsSmart(boolean isSmart) {
 		this.isSmart = isSmart;
+	}
+	
+	@Override
+	public double getDiscountPrice() {
+		if(!isSmart ) {
+			double x = (100.0 - extraDiscount)/100.0;
+			double result = getGrossPrice()*x;
+			return result;
+		}
+		// TODO Auto-generated method stub
+		return super.getDiscountPrice();
 	}
 	
 	@Override

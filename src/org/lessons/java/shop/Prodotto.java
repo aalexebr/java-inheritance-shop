@@ -12,7 +12,11 @@ public class Prodotto {
 	protected double price;
 	protected double iva;
 	
-	public Prodotto(String name, String description,double price ,double iva) {
+//	bonus 
+
+	static protected int discount = 2;
+	
+	public Prodotto(String name, String description, double price, double iva) {
 		setCode();
 		setName(name);
 		setDescription(description);
@@ -87,6 +91,7 @@ public class Prodotto {
 	}
 	
 	
+	
 	public double getGrossPrice() {
 		double x = getIva()/100.0;
 		double y = x*getPrice();
@@ -94,6 +99,13 @@ public class Prodotto {
 		return  result ;
 		
 	}
+	
+	public double getDiscountPrice(){
+			double x = 100.0 - discount;
+			double result = getGrossPrice()*x;
+			return result;
+	}
+	
 	
 	public String getExtendedName() {
 		return getCode()+"-"+getName();
@@ -113,8 +125,7 @@ public class Prodotto {
 				+ "iva: " + getIva()+ "%\n"
 				+ "prezzo con iva: " + String.format("%.01f",getGrossPrice())+ "\n"
 				+ "full product name: " + getExtendedName()+ "\n";
-		
-		
+
 	}
 	
 }
