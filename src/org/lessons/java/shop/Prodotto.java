@@ -6,11 +6,11 @@ import java.util.Random;
 
 public class Prodotto {
 
-	private int code;
-	private String name;
-	private String description;
-	private double price;
-	private double iva;
+	protected int code;
+	protected String name;
+	protected String description;
+	protected double price;
+	protected double iva;
 	
 	public Prodotto(String name, String description,double price ,double iva) {
 		setCode();
